@@ -59,7 +59,7 @@ The dashboard uses FastAPI for local evaluation APIs, workspace report access, a
 Keep the application source and agent workspace in separate directories. The backend `.env` should point `VENTURELENS_AGENT_WORKSPACE` to the directory your Switch agents use, for example:
 
 ```dotenv
-VENTURELENS_AGENT_WORKSPACE=C:\\Users\\YOUR_WINDOWS_USER\\VentureLensAI
+VENTURELENS_AGENT_WORKSPACE=C:\Users\YOUR_WINDOWS_USER\VentureLensAI
 ```
 
 ### Start the application
@@ -68,7 +68,7 @@ In PowerShell, open the application directory and run:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
-.\\start-venturelens.ps1
+.\start-venturelens.ps1
 ```
 
 The starter prepares the local environment and launches the frontend and API. Open [http://127.0.0.1:5173](http://127.0.0.1:5173) if the browser does not open automatically. The API is at [http://127.0.0.1:8000](http://127.0.0.1:8000) and its interactive docs are at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
@@ -76,15 +76,15 @@ The starter prepares the local environment and launches the frontend and API. Op
 For a manual start, use separate PowerShell windows:
 
 ```powershell
-cd .\\backend
+cd .\backend
 py -3.13 -m venv .venv
-.\\.venv\\Scripts\\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 ```powershell
-cd .\\frontend
+cd .\frontend
 npm install
 npm run dev
 ```
