@@ -52,14 +52,14 @@ The dashboard uses FastAPI for local evaluation APIs, workspace report access, a
 ### Requirements
 
 - Windows 10 or 11
-- Python 3.11 or newer
+- Standard (non-free-threaded) Python 3.11–3.13
 - Node.js 20 or newer with npm
 - Existing Switch/Mattermost setup and configured Codex agents for live agent collaboration
 
 Keep the application source and agent workspace in separate directories. The backend `.env` should point `VENTURELENS_AGENT_WORKSPACE` to the directory your Switch agents use, for example:
 
 ```dotenv
-VENTURELENS_AGENT_WORKSPACE=C:\Users\YOUR_WINDOWS_USER\VentureLensAI
+VENTURELENS_AGENT_WORKSPACE=C:\\Users\\YOUR_WINDOWS_USER\\VentureLensAI
 ```
 
 ### Start the application
@@ -68,7 +68,7 @@ In PowerShell, open the application directory and run:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
-.\start-venturelens.ps1
+.\\start-venturelens.ps1
 ```
 
 The starter prepares the local environment and launches the frontend and API. Open [http://127.0.0.1:5173](http://127.0.0.1:5173) if the browser does not open automatically. The API is at [http://127.0.0.1:8000](http://127.0.0.1:8000) and its interactive docs are at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
@@ -76,15 +76,15 @@ The starter prepares the local environment and launches the frontend and API. Op
 For a manual start, use separate PowerShell windows:
 
 ```powershell
-cd .\backend
-py -3 -m venv .venv
-.\.venv\Scripts\Activate.ps1
+cd .\\backend
+py -3.13 -m venv .venv
+.\\.venv\\Scripts\\Activate.ps1
 python -m pip install -r requirements.txt
 python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 ```powershell
-cd .\frontend
+cd .\\frontend
 npm install
 npm run dev
 ```
@@ -103,15 +103,6 @@ For the local Mattermost instance, open **Settings → Mattermost connection**, 
 4. Open **Agent room** to show actual synchronized messages, authors, timestamps, filters, connection status, and report-derived research progress.
 5. In **Reports**, inspect the final memo and its evidence classifications. Choose **Export PDF**, then select **Save as PDF** in the browser print dialog.
 6. Return to the Markdown **Download** action to show that the original export remains available.
-
-## Screenshots
-
-Add current screenshots in `docs/screenshots/` before packaging the demo:
-
-- `![Overview](docs/screenshots/overview.png)`
-- `![Agent Room](docs/screenshots/agent-room.png)`
-- `![Financial Analysis](docs/screenshots/financial-analysis.png)`
-- `![Final Memo](docs/screenshots/final-memo.png)`
 
 ## Privacy and security
 
