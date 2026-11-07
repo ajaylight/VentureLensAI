@@ -1,10 +1,35 @@
+# Node.js
 node_modules/
 dist/
+build/
+coverage/
+
+# Environment files (keep example templates)
 .env
-backend/.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python environments, bytecode, and test caches
+**/.venv/
+**/venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local runtime data, databases, and logs
 backend/data/
 backend/testdata/
-__pycache__/
-*.pyc
-.venv/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# OS and editor files
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
